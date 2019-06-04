@@ -19,15 +19,15 @@ export default class App extends Component {
   };
   handleSubmit =  e =>{
     e.preventDefault();
-
+      if(this.state.item === ""){
+        alert("Please write a todo item!");
+      }
+      else{
     const newItem = {
       id:this.state.id,
       title:this.state.item
 
     };
-
-
-
     const updatedItems = [...this.state.items,newItem];
 
     this.setState({
@@ -36,13 +36,26 @@ export default class App extends Component {
       id:uuid(),
       editItem:false
     });
-  };
+  }};
 
   clearList = () =>{
-    this.setState({
-      items:[]
-    })
+    
+    if(this.state.items == ""){
+      alert("List is empty");
+    }
+    else if( window.confirm("Are you sure you want to clear this list?")){
+      this.setState({
+        items:[]
+      })
+    } 
   }
+  handleDelete= (id) =>{
+    
+    const filterdItems = this.state.items.filter(item => item.id!== id)
+    this.setState({
+      items:filterdItems
+    });
+  };
   render() {
     return (
       <div className="container">
@@ -50,7 +63,7 @@ export default class App extends Component {
           <div className="col-10 mx-auto col-md-8 mt-4">
             <h3 className="text-capitalize text-center">Todo Input</h3>
           <Todoinput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-          <Todolist  items={this.state.items} clearList={this.clearList} />
+          <Todolist  items={this.state.items} clearList={this.clearList} handleDelete={this.handleDelete}/>
           </div>
         </div>
       </div>
