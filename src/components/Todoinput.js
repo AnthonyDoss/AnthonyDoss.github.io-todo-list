@@ -14,7 +14,7 @@ export default class TodoInput extends Component {
                       </div>
                       <input type="text" className="form-control text-center" placeholder="Add Something to your list!" value={item} onChange={handleChange}/>
                   </div> 
-                    <button type="submit" className ="btn btn-block btn-primary mt-3">Add item</button>
+                    <button type="submit" className ="btn btn-block btn-outline-success mt-3">Add item <i className="fas fa-check fa-1x" /></button>
                </form>
              
             </div>
