@@ -6,8 +6,10 @@ export default class Todolist extends Component {
         const {items,clearList,handleDelete} = this.props;
 
         return (
-           <ul className="list-group my-5">
-               <h3 className="text-capitalize text-center">Todo list</h3>
+            <div class="card card-body"> 
+           <ul className="list-group mt-1">
+               <h3 className="text-capitalize text-center text-primary">Todo list</h3>
+               
 {
     items.map(item =>{
         return(
@@ -15,8 +17,8 @@ export default class Todolist extends Component {
         )
     })
 }
-               <button type="button" className="btn btn-danger btn-block mt-5" onClick={clearList}>Clear List</button>
-           </ul>
+               <button type="button" className="btn btn btn-outline-danger btn-block mt-5" onClick={clearList}>Clear List</button>
+           </ul></div>
         )
     }
 }
