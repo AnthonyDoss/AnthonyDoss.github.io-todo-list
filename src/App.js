@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Todoinput from './components/Todoinput';
 import Todolist from './components/Todolist';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import uuid from "uuid";
 
 
@@ -41,7 +41,7 @@ export default class App extends Component {
   clearList = () =>{
     
     if(this.state.items == ""){
-      alert("List is empty");
+      alert("List is empty!");
     }
     else if( window.confirm("Are you sure you want to clear this list?")){
       this.setState({
@@ -60,8 +60,8 @@ export default class App extends Component {
     return (
       <div className="container">
         <div className ="row">
-          <div className="col-10 mx-auto col-md-8 mt-4">
-            <h3 className="text-capitalize text-center">Todo Input</h3>
+          <div className="col-10 mx-auto col-md-8 mt-5">
+            <h3 className="text-capitalize text-center text-primary">Todo Input</h3>
           <Todoinput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
           <Todolist  items={this.state.items} clearList={this.clearList} handleDelete={this.handleDelete}/>
           </div>
